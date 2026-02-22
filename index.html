@@ -6,211 +6,42 @@
 <title>Happy Birthday!</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --gold: #f5c842;
-    --deep: #0d0a1e;
-    --mid: #1a1535;
-    --accent: #e85d9f;
-    --teal: #3dd9c8;
-    --white: #f5f0ff;
-  }
-
+  :root { --gold: #f5c842; --deep: #0d0a1e; --mid: #1a1535; --accent: #e85d9f; --teal: #3dd9c8; --white: #f5f0ff; }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'Lato', sans-serif;
-    background: var(--deep);
-    color: var(--white);
-    min-height: 100vh;
-    overflow-x: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* ── Starfield background ── */
-  .stars {
-    position: fixed; inset: 0; pointer-events: none; z-index: 0;
-    background:
-      radial-gradient(ellipse at 20% 30%, rgba(229,93,159,.15) 0%, transparent 55%),
-      radial-gradient(ellipse at 80% 70%, rgba(61,217,200,.12) 0%, transparent 55%),
-      var(--deep);
-  }
-  .stars::before, .stars::after {
-    content: '';
-    position: absolute; inset: 0;
-    background-image:
-      radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,.7) 0%, transparent 100%),
-      radial-gradient(1px 1px at 30% 55%, rgba(255,255,255,.5) 0%, transparent 100%),
-      radial-gradient(1.5px 1.5px at 50% 25%, rgba(255,255,255,.8) 0%, transparent 100%),
-      radial-gradient(1px 1px at 70% 80%, rgba(255,255,255,.6) 0%, transparent 100%),
-      radial-gradient(1.5px 1.5px at 90% 10%, rgba(255,255,255,.9) 0%, transparent 100%),
-      radial-gradient(1px 1px at 5%  90%, rgba(255,255,255,.4) 0%, transparent 100%),
-      radial-gradient(1px 1px at 85% 45%, rgba(255,255,255,.5) 0%, transparent 100%),
-      radial-gradient(1px 1px at 40% 70%, rgba(255,255,255,.6) 0%, transparent 100%),
-      radial-gradient(1px 1px at 60% 50%, rgba(255,255,255,.3) 0%, transparent 100%),
-      radial-gradient(1.5px 1.5px at 22% 88%, rgba(255,255,255,.7) 0%, transparent 100%);
-    background-size: 400px 400px;
-    animation: twinkle 6s ease-in-out infinite alternate;
-  }
+  body { font-family: 'Lato', sans-serif; background: var(--deep); color: var(--white); min-height: 100vh; overflow-x: hidden; display: flex; align-items: center; justify-content: center; }
+  .stars { position: fixed; inset: 0; pointer-events: none; z-index: 0; background: radial-gradient(ellipse at 20% 30%, rgba(229,93,159,.15) 0%, transparent 55%), radial-gradient(ellipse at 80% 70%, rgba(61,217,200,.12) 0%, transparent 55%), var(--deep); }
+  .stars::before, .stars::after { content: ''; position: absolute; inset: 0; background-image: radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,.7) 0%, transparent 100%), radial-gradient(1px 1px at 30% 55%, rgba(255,255,255,.5) 0%, transparent 100%), radial-gradient(1.5px 1.5px at 50% 25%, rgba(255,255,255,.8) 0%, transparent 100%), radial-gradient(1px 1px at 70% 80%, rgba(255,255,255,.6) 0%, transparent 100%), radial-gradient(1.5px 1.5px at 90% 10%, rgba(255,255,255,.9) 0%, transparent 100%), radial-gradient(1px 1px at 5% 90%, rgba(255,255,255,.4) 0%, transparent 100%), radial-gradient(1px 1px at 85% 45%, rgba(255,255,255,.5) 0%, transparent 100%), radial-gradient(1px 1px at 40% 70%, rgba(255,255,255,.6) 0%, transparent 100%), radial-gradient(1px 1px at 60% 50%, rgba(255,255,255,.3) 0%, transparent 100%), radial-gradient(1.5px 1.5px at 22% 88%, rgba(255,255,255,.7) 0%, transparent 100%); background-size: 400px 400px; animation: twinkle 6s ease-in-out infinite alternate; }
   .stars::after { animation-delay: -3s; background-size: 300px 300px; opacity: .6; }
   @keyframes twinkle { from { opacity: .6; } to { opacity: 1; } }
-
-  /* ── Card ── */
-  .card {
-    position: relative; z-index: 1;
-    background: rgba(26, 21, 53, 0.75);
-    backdrop-filter: blur(18px);
-    border: 1px solid rgba(245,200,66,.2);
-    border-radius: 24px;
-    padding: 52px 56px;
-    width: min(520px, 92vw);
-    box-shadow: 0 8px 60px rgba(229,93,159,.15), 0 0 0 1px rgba(255,255,255,.04);
-    animation: fadeUp .7s ease both;
-  }
+  .card { position: relative; z-index: 1; background: rgba(26, 21, 53, 0.75); backdrop-filter: blur(18px); border: 1px solid rgba(245,200,66,.2); border-radius: 24px; padding: 52px 56px; width: min(520px, 92vw); box-shadow: 0 8px 60px rgba(229,93,159,.15), 0 0 0 1px rgba(255,255,255,.04); animation: fadeUp .7s ease both; }
   @keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
-
-  /* ── Logo / icon ── */
-  .icon-wrap {
-    display: flex; justify-content: center; margin-bottom: 24px;
-  }
-  .cake-icon {
-    font-size: 52px;
-    filter: drop-shadow(0 0 16px var(--accent));
-    animation: float 3s ease-in-out infinite;
-  }
-  @keyframes float {
-    0%,100% { transform: translateY(0);   }
-    50%      { transform: translateY(-8px); }
-  }
-
-  h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.7rem, 5vw, 2.3rem);
-    font-weight: 900;
-    text-align: center;
-    letter-spacing: -.5px;
-    background: linear-gradient(135deg, var(--gold) 0%, var(--accent) 60%, var(--teal) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 8px;
-  }
-  .subtitle {
-    text-align: center; color: rgba(245,240,255,.45);
-    font-size: .85rem; letter-spacing: .08em; text-transform: uppercase;
-    margin-bottom: 36px;
-  }
-
-  /* ── Steps ── */
+  .icon-wrap { display: flex; justify-content: center; margin-bottom: 24px; }
+  .cake-icon { font-size: 52px; filter: drop-shadow(0 0 16px var(--accent)); animation: float 3s ease-in-out infinite; }
+  @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.7rem, 5vw, 2.3rem); font-weight: 900; text-align: center; letter-spacing: -.5px; background: linear-gradient(135deg, var(--gold) 0%, var(--accent) 60%, var(--teal) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px; }
+  .subtitle { text-align: center; color: rgba(245,240,255,.45); font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 36px; }
   .step { display: none; animation: stepIn .4s ease both; }
   .step.active { display: block; }
   @keyframes stepIn { from { opacity:0; transform:translateX(20px); } to { opacity:1; transform:translateX(0); } }
-
-  label {
-    display: block;
-    font-size: .8rem; letter-spacing: .12em; text-transform: uppercase;
-    color: rgba(245,240,255,.5);
-    margin-bottom: 10px;
-  }
-
-  input[type="text"], input[type="number"] {
-    width: 100%;
-    background: rgba(255,255,255,.06);
-    border: 1.5px solid rgba(245,200,66,.25);
-    border-radius: 12px;
-    padding: 14px 18px;
-    font-family: 'Lato', sans-serif;
-    font-size: 1rem;
-    color: var(--white);
-    outline: none;
-    transition: border-color .25s, box-shadow .25s;
-  }
-  input:focus {
-    border-color: var(--gold);
-    box-shadow: 0 0 0 3px rgba(245,200,66,.15);
-  }
-  .error-msg {
-    font-size: .8rem; color: var(--accent);
-    margin-top: 8px; min-height: 18px;
-    opacity: 0; transition: opacity .2s;
-  }
+  label { display: block; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(245,240,255,.5); margin-bottom: 10px; }
+  input[type="text"], input[type="number"] { width: 100%; background: rgba(255,255,255,.06); border: 1.5px solid rgba(245,200,66,.25); border-radius: 12px; padding: 14px 18px; font-family: 'Lato', sans-serif; font-size: 1rem; color: var(--white); outline: none; transition: border-color .25s, box-shadow .25s; }
+  input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(245,200,66,.15); }
+  .error-msg { font-size: .8rem; color: var(--accent); margin-top: 8px; min-height: 18px; opacity: 0; transition: opacity .2s; }
   .error-msg.show { opacity: 1; }
-
-  button {
-    width: 100%; margin-top: 24px;
-    padding: 15px;
-    background: linear-gradient(135deg, var(--gold), var(--accent));
-    border: none; border-radius: 12px;
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem; font-weight: 700;
-    color: var(--deep);
-    cursor: pointer;
-    letter-spacing: .03em;
-    transition: transform .15s, box-shadow .15s, filter .15s;
-    box-shadow: 0 4px 24px rgba(229,93,159,.3);
-  }
-  button:hover  { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(229,93,159,.45); filter: brightness(1.05); }
+  button { width: 100%; margin-top: 24px; padding: 15px; background: linear-gradient(135deg, var(--gold), var(--accent)); border: none; border-radius: 12px; font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--deep); cursor: pointer; letter-spacing: .03em; transition: transform .15s, box-shadow .15s, filter .15s; box-shadow: 0 4px 24px rgba(229,93,159,.3); }
+  button:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(229,93,159,.45); filter: brightness(1.05); }
   button:active { transform: translateY(0); }
-
-  /* ── Result card ── */
-  #result {
-    text-align: center;
-  }
-  .result-name {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 7vw, 3rem);
-    font-weight: 900;
-    background: linear-gradient(135deg, var(--teal), var(--gold));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 4px;
-  }
-  .result-age {
-    font-size: .9rem; color: rgba(245,240,255,.5);
-    letter-spacing: .1em; text-transform: uppercase;
-    margin-bottom: 30px;
-  }
-  .big-wish {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.4rem, 4vw, 1.9rem);
-    color: var(--gold);
-    margin-bottom: 8px;
-    animation: pulse 1.5s ease-in-out infinite;
-  }
+  #result { text-align: center; }
+  .result-name { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 7vw, 3rem); font-weight: 900; background: linear-gradient(135deg, var(--teal), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 4px; }
+  .result-age { font-size: .9rem; color: rgba(245,240,255,.5); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 30px; }
+  .big-wish { font-family: 'Playfair Display', serif; font-size: clamp(1.4rem, 4vw, 1.9rem); color: var(--gold); margin-bottom: 8px; animation: pulse 1.5s ease-in-out infinite; }
   @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:.7;} }
-  .age-line {
-    color: rgba(245,240,255,.65); font-size: .95rem;
-  }
-  .restart-btn {
-    background: rgba(255,255,255,.07);
-    color: rgba(245,240,255,.7);
-    box-shadow: none;
-    font-family: 'Lato', sans-serif;
-    font-size: .85rem;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    margin-top: 16px;
-  }
+  .age-line { color: rgba(245,240,255,.65); font-size: .95rem; }
+  .restart-btn { background: rgba(255,255,255,.07); color: rgba(245,240,255,.7); box-shadow: none; font-family: 'Lato', sans-serif; font-size: .85rem; letter-spacing: .1em; text-transform: uppercase; margin-top: 16px; }
   .restart-btn:hover { background: rgba(255,255,255,.12); box-shadow: none; filter: none; }
-
-  /* ── Confetti ── */
-  .confetti-container {
-    position: fixed; inset: 0; pointer-events: none; z-index: 9;
-    overflow: hidden;
-  }
-  .dot {
-    position: absolute;
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    opacity: 0;
-    animation: confettiFall linear forwards;
-  }
-  @keyframes confettiFall {
-    0%   { opacity: 1; transform: translateY(-20px) rotate(0deg) scale(1); }
-    80%  { opacity: 1; }
-    100% { opacity: 0; transform: translateY(100vh) rotate(720deg) scale(.4); }
-  }
+  .confetti-container { position: fixed; inset: 0; pointer-events: none; z-index: 9; overflow: hidden; }
+  .dot { position: absolute; width: 10px; height: 10px; border-radius: 50%; opacity: 0; animation: confettiFall linear forwards; }
+  @keyframes confettiFall { 0% { opacity: 1; transform: translateY(-20px) rotate(0deg) scale(1); } 80% { opacity: 1; } 100% { opacity: 0; transform: translateY(100vh) rotate(720deg) scale(.4); } }
 </style>
 </head>
 <body>
@@ -222,132 +53,150 @@
   <div class="icon-wrap"><span class="cake-icon">🎂</span></div>
   <h1>Birthday Portal</h1>
   <p class="subtitle">A moment worth celebrating</p>
-
-  <!-- Step 1: Name -->
   <div class="step active" id="step1">
     <label for="nameInput">What is your name?</label>
     <input type="text" id="nameInput" placeholder="Enter your name…" autofocus>
-    <button onclick="submitName()">Continue →</button>
+    <button onclick="doEverything('name')">Continue →</button>
   </div>
-
-  <!-- Step 2: Age -->
   <div class="step" id="step2">
     <label for="ageInput">What is your age?</label>
     <input type="number" id="ageInput" placeholder="Enter your age…" min="0" max="150">
     <div class="error-msg" id="ageError">Please enter a valid integer for age.</div>
-    <button onclick="submitAge()">Let's celebrate 🎉</button>
+    <button onclick="doEverything('age')">Let's celebrate 🎉</button>
   </div>
-
-  <!-- Step 3: Result -->
   <div class="step" id="result">
     <p style="color:rgba(245,240,255,.45); font-size:.8rem; text-transform:uppercase; letter-spacing:.1em; margin-bottom:8px;">Happy Birthday,</p>
     <div class="result-name" id="displayName"></div>
     <div class="result-age" id="displayAge"></div>
     <div class="big-wish">🎉 Happy Birthday! 🎉</div>
     <p class="age-line" id="displayAgeMsg"></p>
-    <button class="restart-btn" onclick="restart()">↩ Start over</button>
+    <button class="restart-btn" onclick="doEverything('restart')">↩ Start over</button>
   </div>
 </div>
 
 <script>
-  let userName = '';
+  // ❌ BAD: giant global state dumped at top level
+  var n = '';
+  var a = 0;
+  var x = false;
+  var ctx2 = null;
+  var temp1 = '';
+  var temp2 = '';
+  var temp3 = 0;
+  var colors1 = ['#f5c842','#e85d9f','#3dd9c8','#ff9a3c','#a78bfa','#60efb0'];
+  var colors2 = ['#f5c842','#e85d9f','#3dd9c8','#ff9a3c','#a78bfa','#60efb0']; // ❌ BAD: duplicate
+  var colors3 = ['#f5c842','#e85d9f','#3dd9c8','#ff9a3c','#a78bfa','#60efb0']; // ❌ BAD: triplicate
 
-  function submitName() {
-    const val = document.getElementById('nameInput').value.trim();
-    if (!val) { document.getElementById('nameInput').style.borderColor = 'var(--accent)'; return; }
-    userName = val;
-    showStep('step2');
-    setTimeout(() => document.getElementById('ageInput').focus(), 300);
-  }
+  // ❌ BAD: one massive function doing EVERYTHING — name, age, restart, sound, confetti
+  function doEverything(type) {
 
-  function submitAge() {
-    const raw = document.getElementById('ageInput').value.trim();
-    const err = document.getElementById('ageError');
-    const age = parseInt(raw, 10);
-
-    if (!raw || isNaN(age) || age < 0 || age > 150 || raw.includes('.')) {
-      err.classList.add('show');
-      document.getElementById('ageInput').style.borderColor = 'var(--accent)';
-      return;
+    if (type == 'name') {
+      // ❌ BAD: getting same element multiple times instead of storing it once
+      if (document.getElementById('nameInput').value.trim() == '') {
+        document.getElementById('nameInput').style.borderColor = 'var(--accent)';
+        return;
+      }
+      n = document.getElementById('nameInput').value.trim(); // ❌ BAD: reading DOM twice
+      // ❌ BAD: manually hiding/showing every step instead of a reusable function
+      document.getElementById('step1').classList.remove('active');
+      document.getElementById('step2').classList.remove('active');
+      document.getElementById('result').classList.remove('active');
+      document.getElementById('step2').classList.add('active');
+      setTimeout(() => document.getElementById('ageInput').focus(), 300);
     }
 
-    err.classList.remove('show');
-    const newAge = age + 1;
+    if (type == 'age') {
+      var r = document.getElementById('ageInput').value.trim();
+      var e = document.getElementById('ageError');
+      var ag = parseInt(r, 10);
 
-    document.getElementById('displayName').textContent = userName;
-    document.getElementById('displayAge').textContent = `Turning ${newAge} today`;
-    document.getElementById('displayAgeMsg').textContent = `You are now ${newAge} years old 🥳`;
+      if (!r || isNaN(ag) || ag < 0 || ag > 150 || r.includes('.')) {
+        document.getElementById('ageError').classList.add('show'); // ❌ BAD: already have e variable above
+        document.getElementById('ageInput').style.borderColor = 'var(--accent)';
+        return;
+      }
 
-    showStep('result');
-playBirthdaySong(); // 👈 add this line
-    launchConfetti();
-  }
-    
-  function launchConfetti() {
-    const container = document.getElementById('confetti');
-    container.innerHTML = '';
-    const colors = ['#f5c842','#e85d9f','#3dd9c8','#ff9a3c','#a78bfa','#60efb0'];
-    for (let i = 0; i < 80; i++) {
-      const dot = document.createElement('div');
-      dot.className = 'dot';
-      dot.style.left = Math.random() * 100 + 'vw';
-      dot.style.top = '0';
-      dot.style.background = colors[Math.floor(Math.random() * colors.length)];
-      dot.style.width = dot.style.height = (6 + Math.random() * 10) + 'px';
-      dot.style.borderRadius = Math.random() > .5 ? '50%' : '2px';
-      dot.style.animationDuration = (2 + Math.random() * 3) + 's';
-      dot.style.animationDelay = (Math.random() * 1.5) + 's';
-      container.appendChild(dot);
+      document.getElementById('ageError').classList.remove('show'); // ❌ BAD: using getElementById again instead of e
+      var newAge = ag + 1;
+
+      document.getElementById('displayName').textContent = n;
+      document.getElementById('displayAge').textContent = 'Turning ' + newAge + ' today'; // ❌ BAD: inconsistent, not using template literals
+      document.getElementById('displayAgeMsg').textContent = `You are now ${newAge} years old 🥳`;
+
+      // ❌ BAD: copy-pasted step switching instead of reusable function
+      document.getElementById('step1').classList.remove('active');
+      document.getElementById('step2').classList.remove('active');
+      document.getElementById('result').classList.remove('active');
+      document.getElementById('result').classList.add('active');
+
+      // ❌ BAD: sound logic dumped directly inside doEverything instead of its own function
+      ctx2 = new (window.AudioContext || window.webkitAudioContext)();
+      var n1 = [264, 0.0,  0.3];
+      var n2 = [264, 0.3,  0.15];
+      var n3 = [297, 0.45, 0.45]; // ❌ BAD: each note as a separate variable instead of array
+      var n4 = [264, 0.9,  0.45];
+      var n5 = [352, 1.35, 0.45];
+      var n6 = [330, 1.8,  0.8];
+      var n7 = [264, 2.8,  0.3];
+      var n8 = [264, 3.1,  0.15];
+      var n9 = [297, 3.25, 0.45];
+      var n10 = [264, 3.7,  0.45];
+      var n11 = [396, 4.15, 0.45];
+      var n12 = [352, 4.6,  0.8];
+      var allNotes = [n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12]; // ❌ BAD: pointless intermediate variables
+
+      allNotes.forEach(function(note) { // ❌ BAD: old-style function instead of arrow function
+        var freq = note[0];
+        var start = note[1];
+        var dur = note[2];
+        var osc  = ctx2.createOscillator();
+        var gain = ctx2.createGain();
+        osc.connect(gain);
+        gain.connect(ctx2.destination);
+        osc.frequency.value = freq;
+        osc.type = 'sine';
+        gain.gain.setValueAtTime(0.3, ctx2.currentTime + start);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx2.currentTime + start + dur);
+        osc.start(ctx2.currentTime + start);
+        osc.stop(ctx2.currentTime + start + dur + 0.1);
+      });
+
+      // ❌ BAD: confetti logic also dumped here instead of its own function
+      var container = document.getElementById('confetti');
+      container.innerHTML = '';
+      for (var i = 0; i < 80; i++) {
+        var dot = document.createElement('div');
+        dot.className = 'dot';
+        dot.style.left = Math.random() * 100 + 'vw';
+        dot.style.top = '0';
+        dot.style.background = colors1[Math.floor(Math.random() * colors1.length)]; // ❌ BAD: using colors1 here
+        dot.style.width = (6 + Math.random() * 10) + 'px';
+        dot.style.height = (6 + Math.random() * 10) + 'px'; // ❌ BAD: width/height set separately, recalculating random twice
+        dot.style.borderRadius = Math.random() > .5 ? '50%' : '2px';
+        dot.style.animationDuration = (2 + Math.random() * 3) + 's';
+        dot.style.animationDelay = (Math.random() * 1.5) + 's';
+        container.appendChild(dot);
+      }
+    }
+
+    if (type == 'restart') {
+      document.getElementById('nameInput').value = '';
+      document.getElementById('ageInput').value = '';
+      document.getElementById('ageInput').style.borderColor = '';
+      document.getElementById('ageError').classList.remove('show');
+      // ❌ BAD: copy-pasted step switching a third time
+      document.getElementById('step1').classList.remove('active');
+      document.getElementById('step2').classList.remove('active');
+      document.getElementById('result').classList.remove('active');
+      document.getElementById('step1').classList.add('active');
+      setTimeout(() => document.getElementById('nameInput').focus(), 300);
     }
   }
-    
-  
-  function playBirthdaySong() {
-  const ctx = new (window.AudioContext || window.webkitAudioContext)();
 
-  // Notes: frequency, start time (seconds), duration (seconds)
-  const notes = [
-    [264, 0.0,  0.3], [264, 0.3,  0.15], [297, 0.45, 0.45],
-    [264, 0.9,  0.45], [352, 1.35, 0.45], [330, 1.8,  0.8],
-    [264, 2.8,  0.3],  [264, 3.1,  0.15], [297, 3.25, 0.45],
-    [264, 3.7,  0.45], [396, 4.15, 0.45], [352, 4.6,  0.8],
-  ];
-
-  notes.forEach(([freq, start, dur]) => {
-    const osc  = ctx.createOscillator();
-    const gain = ctx.createGain();
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-    osc.frequency.value = freq;
-    osc.type = 'sine';
-    gain.gain.setValueAtTime(0.3, ctx.currentTime + start);
-    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + start + dur);
-    osc.start(ctx.currentTime + start);
-    osc.stop(ctx.currentTime + start + dur + 0.1);
-  });
-}
-  
-
-  function showStep(id) {
-    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-  }
-
-  function restart() {
-    document.getElementById('nameInput').value = '';
-    document.getElementById('ageInput').value = '';
-    document.getElementById('ageInput').style.borderColor = '';
-    document.getElementById('ageError').classList.remove('show');
-    showStep('step1');
-    setTimeout(() => document.getElementById('nameInput').focus(), 300);
-  }
-
-
-
-  // Enter key support
-  document.getElementById('nameInput').addEventListener('keydown', e => { if (e.key === 'Enter') submitName(); });
-  document.getElementById('ageInput').addEventListener('keydown', e => { if (e.key === 'Enter') submitAge(); });
-  document.getElementById('ageInput').addEventListener('input', () => {
+  // ❌ BAD: enter key listeners duplicated and inconsistent
+  document.getElementById('nameInput').addEventListener('keydown', function(e) { if (e.key === 'Enter') { doEverything('name'); } });
+  document.getElementById('ageInput').addEventListener('keydown',  function(e) { if (e.key === 'Enter') { doEverything('age');  } });
+  document.getElementById('ageInput').addEventListener('input', function() {
     document.getElementById('ageInput').style.borderColor = '';
     document.getElementById('ageError').classList.remove('show');
   });
